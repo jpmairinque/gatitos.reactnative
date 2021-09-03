@@ -20,8 +20,6 @@ const Item = ({nome,preco,descricao,quantidade}) =>{
         setTotal(quantidade*preco)
     }
 
-    
-
     return (
         <>
     <View style={estilos.informacao}>
