@@ -1,32 +1,62 @@
-import React, { useState } from 'react'
-import {Text, View, TextInput, StatusBar,SafeAreaView, FlatList, Button} from 'react-native'
+import React, { useContext, useState } from 'react'
+
+import { ItemsContext } from '../../../contexts/ItemsContext'
+
+import {Text, View, TouchableOpacity, TextInput, StatusBar,SafeAreaView, FlatList, Button} from 'react-native'
+import Botao from '../../../componentes/Botao/Botao'
 import CampoInteiro from '../../../componentes/CampoInteiro/CampoInteiro'
 import estilos from './estilos'
 
-const Item = ({nome,preco,descricao}) =>{
+const Item = ({nome,preco,descricao,id}) =>{
 
     const [quantidade, setQuantidade] = useState(1)
+    const [total, setTotal] = useState(preco)
+    const [expandir, setExpandir] = useState(false)
+
+    const {carrinhoItems,setCarrinhoItems} = useContext(ItemsContext)
+
+    const atualizaQuantidadeTotal = (novaQuantidade) => {
+        setQuantidade(novaQuantidade)
+        calculaTotal(novaQuantidade)
+    }
+    const calculaTotal = (novaQuantidade) => {
+        setTotal(novaQuantidade*preco)
+    }
+
+    const atualizaCarrinho = () => {
+
+        const listaCarrinho = [...carrinhoItems]
+        listaCarrinho[id].quantidade += quantidade
+
+        setCarrinhoItems(listaCarrinho)
+        
+             
+    }
 
     return (
         <>
-    <View style={estilos.informacao}>
+    <TouchableOpacity style={estilos.informacao} onPress={()=>{setExpandir(!expandir); atualizaQuantidadeTotal(1)}}>
         <Text style={estilos.nome}>{nome}</Text>
         <Text style={estilos.descricao}>{descricao}</Text>
-        <Text style={estilos.preco}>{preco}</Text>
+        <Text style={estilos.preco}>{Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format(preco)}</Text>
         
-    </View>
+    </TouchableOpacity>
 
-    <View style={estilos.carrinho}>
+    {expandir && <View style={estilos.carrinho}>
+        <View>
         <View style={estilos.valor}>
            <Text style={estilos.descricao}>Quantidade:</Text>
-           <CampoInteiro acao={setQuantidade} valor={quantidade}/>
+           <CampoInteiro estilos={estilos.quantidade} acao={atualizaQuantidadeTotal} valor={quantidade}/>
         </View>
         <View style={estilos.valor}>
-           <Text style={estilos.descricao}>Preco:</Text>
-           <Text style={estilos.preco}>0</Text>
+           <Text style={estilos.descricao}>Total:</Text>
+           <Text style={estilos.preco}>{Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format(total)}</Text>
+          
         </View>
-        <Button title="Adicionar"/>
+        </View>
+        <Botao valor="Adicionar ao carrinho" acao={()=>{atualizaCarrinho()}}/>
     </View>
+        }
     <View style={estilos.divisor}/>
     
     </>
