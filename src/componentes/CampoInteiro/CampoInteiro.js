@@ -8,9 +8,9 @@ const CampoInteiro = ({valor,acao,estilos}) =>{
         const verificaInteiro = newValue.match(/^[0-9]*$/)
         if(!verificaInteiro) return
         const removeZeroEsquerda = newValue.replace(/^(0)(.+)/,'$2')
-        const valorFinal = parseInt(removeZeroEsquerda)
+       
       
-        acaoRetorno(valorFinal)
+        acaoRetorno(removeZeroEsquerda)
 
     }
     const numberString=String(valor);
