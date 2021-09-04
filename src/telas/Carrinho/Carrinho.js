@@ -7,20 +7,19 @@ import StatusCarrinho from '../../componentes/StatusCarrinho/StatusCarrinho'
 
 
 
-const Carrinho = () =>{
+const Carrinho = ({navigation}) =>{
 
 
     const {carrinhoItems} = useContext(ItemsContext)
 
 
-    console.log(carrinhoItems)
 
     const total = carrinhoItems.reduce((soma,{preco,quantidade})=>soma+(preco*quantidade),0)
  
     return (
         <>
            
-            <StatusCarrinho total={total}/>
+            <StatusCarrinho navigation={navigation} total={total}/>
             <FlatList 
             removeClippedSubviews={false}
             data ={carrinhoItems}

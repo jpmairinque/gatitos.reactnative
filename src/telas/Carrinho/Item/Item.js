@@ -1,15 +1,16 @@
 import React, { useContext, useState, useEffect } from 'react'
 import {Text, View, TouchableOpacity, TextInput, StatusBar,SafeAreaView, FlatList, Button} from 'react-native'
 import Botao from '../../../componentes/Botao/Botao'
-import CampoInteiro from '../../../componentes/CampoInteiro/CampoInteiro'
+import { ItemsContext } from '../../../contexts/ItemsContext'
 import estilos from './estilos'
 
 
 
-const Item = ({nome,preco,descricao,quantidade}) =>{
+const Item = ({nome,preco,descricao,quantidade,id}) =>{
 
    
     const [total, setTotal] = useState(preco)
+    const {carrinhoItems, setCarrinhoItems} = useContext(ItemsContext)
 
     useEffect(() => {
         calculaTotal()
@@ -18,6 +19,16 @@ const Item = ({nome,preco,descricao,quantidade}) =>{
 
     const calculaTotal = () => {
         setTotal(quantidade*preco)
+    }
+
+    const removerCarrinho = () =>{
+
+        const listaCarrinho = [...carrinhoItems]
+        listaCarrinho[id].quantidade =  0
+     
+
+      setCarrinhoItems(listaCarrinho)
+
     }
 
     return (
@@ -41,7 +52,7 @@ const Item = ({nome,preco,descricao,quantidade}) =>{
           
         </View>
         </View>
-        <Botao valor="Remover do carrinho" acao={()=>{}}/>
+        <Botao valor="Remover do carrinho" acao={()=>{removerCarrinho()}}/>
     </View>
         
     <View style={estilos.divisor}/>

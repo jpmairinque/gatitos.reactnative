@@ -26,9 +26,10 @@ const Item = ({nome,preco,descricao,id}) =>{
     const atualizaCarrinho = () => {
 
         const listaCarrinho = [...carrinhoItems]
-        listaCarrinho[id].quantidade += quantidade
+        listaCarrinho[id].quantidade =  listaCarrinho[id].quantidade+quantidade
+     
 
-        setCarrinhoItems(listaCarrinho)
+      setCarrinhoItems(listaCarrinho)
         
              
     }

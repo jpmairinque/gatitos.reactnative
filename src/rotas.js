@@ -2,21 +2,24 @@ import React from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import ItemsContextProvider from './contexts/ItemsContext';
 
 import Servicos from './telas/Servicos/Servicos';
 import Carrinho from './telas/Carrinho/Carrinho';
+import CompraFinalizada from './telas/CompraFinalizada/CompraFinalizada';
 
 import { cores } from './telas/Servicos/estilos';
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator()
 
-const Rotas = () =>{
+const Tabs = () => {
     return(
-     
-        <NavigationContainer>
-              <ItemsContextProvider>
+ 
+            <ItemsContextProvider>
+            
             <Tab.Navigator tabBarOptions={{
                 activeTintColor:cores.roxo,
                 inactiveTintColor:cores.claro,
@@ -43,8 +46,31 @@ const Rotas = () =>{
               
             </Tab.Navigator>
             </ItemsContextProvider>
-        </NavigationContainer>
+    
        
+    )
+
+
+}
+
+const Rotas = () =>{
+    return(
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="Home" screenOptions={{headerShown: false}}>
+                <Stack.Screen
+                name="Home"
+                component={Tabs}
+              />
+              <Stack.Screen
+                name="CompraFinalizada"
+                component={CompraFinalizada}
+                
+              />
+
+            </Stack.Navigator>
+        </NavigationContainer>
+     
+        
     )
 }
 
