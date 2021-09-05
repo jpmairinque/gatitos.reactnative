@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 import { cores } from "../Servicos/estilos";
+
 export default StyleSheet.create({
   wrapper: {
     height: "100%",
@@ -65,5 +65,12 @@ export default StyleSheet.create({
     marginBottom: 30,
     fontStyle: "italic",
     color: "grey",
+  },
+  buttonbox: {
+    marginBottom: 15,
+    width: "90%",
+    height: 40,
+    flexDirection: "row",
+    justifyContent: "space-around",
   },
 });

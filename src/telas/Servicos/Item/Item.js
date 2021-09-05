@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react'
+import {Text, View, TouchableOpacity} from 'react-native'
 
 import { ItemsContext } from '../../../contexts/ItemsContext'
-
-import {Text, View, TouchableOpacity, TextInput, StatusBar,SafeAreaView, FlatList, Button} from 'react-native'
 import Botao from '../../../componentes/Botao/Botao'
 import CampoInteiro from '../../../componentes/CampoInteiro/CampoInteiro'
+
 import estilos from './estilos'
 
 const Item = ({nome,preco,descricao,id}) =>{
@@ -53,7 +53,6 @@ const Item = ({nome,preco,descricao,id}) =>{
         <View style={estilos.valor}>
            <Text style={estilos.descricao}>Total:</Text>
            <Text style={estilos.preco}>{Intl.NumberFormat('pt-BR',{style:'currency', currency:'BRL'}).format(total)}</Text>
-          
         </View>
         </View>
         <Botao valor="Adicionar ao carrinho" acao={()=>{atualizaCarrinho()}}/>
@@ -63,7 +62,6 @@ const Item = ({nome,preco,descricao,id}) =>{
     
     </>
     
-   
     )
 }
 

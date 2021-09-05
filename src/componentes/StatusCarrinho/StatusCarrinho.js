@@ -1,14 +1,13 @@
 import React from 'react';
-
-import { View, Text,Button } from 'react-native';
+import { View, Text} from 'react-native';
 
 import Botao from '../Botao/Botao';
 import estilos from './estilos';
 
 export default function StatusCarrinho({navigation,total}) {
 
-  console.log(navigation)
-  return <View style={estilos.conteudo}>
+  return (
+  <View style={estilos.conteudo}>
     <View style={estilos.total}>
       <Text style={estilos.descricao}>Total do Carrinho:</Text>
       <Text style={estilos.valor}>
@@ -23,4 +22,5 @@ export default function StatusCarrinho({navigation,total}) {
       <Botao valor='Concluir Pedido' invertido acao={()=> {navigation.navigate('CompraFinalizada',{precoFinal: total})}} />
     </View>
   </View>
+  )
 }

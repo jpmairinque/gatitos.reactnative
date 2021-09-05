@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Text, View, Image, TouchableOpacity, Touchable } from "react-native";
+import { Text, View, Image, TouchableOpacity } from "react-native";
+
 import TelaPadrao from "../../componentes/TelaPadrao/TelaPadrao";
-import estilos from "./estilos";
 import Botao from "../../componentes/Botao/Botao";
+
+import estilos from "./estilos";
 
 const CompraFinalizada = ({ route, navigation }) => {
   const [metodoPag, setMetodoPag] = useState();
@@ -60,15 +62,24 @@ const CompraFinalizada = ({ route, navigation }) => {
               </TouchableOpacity>
               </View>
             </View>
-
+            <View style={estilos.buttonbox}>
             <Botao
-              estilos={{ width: "60%", margin: 50 }}
+              estilos={{ width:'60%' }}
               valor={"Voltar para a loja"}
               acao={() => {
                 navigation.navigate("Home");
               }}
             />
-            
+
+            {metodoPag && <Botao
+              estilos={{ width:'30%', backgroundColor: 'green', color:'blue' }}
+              valor={"Pagar"}
+              acao={() => {
+                navigation.navigate("Home");
+              }}
+            />}
+
+            </View>   
           </View>
         </View>
       </TelaPadrao>

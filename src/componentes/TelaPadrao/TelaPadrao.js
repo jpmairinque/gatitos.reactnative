@@ -1,5 +1,6 @@
 import React from 'react';
-import {Text,StatusBar,SafeAreaView, FlatList, KeyboardAvoidingView,Platform} from 'react-native'
+import {StatusBar,SafeAreaView,KeyboardAvoidingView,Platform} from 'react-native'
+
 import estilosGlobal from '../../telas/Carrinho/estilos'
 import {cores} from '../../telas/Servicos/estilos'
 import estilos from './estilos';

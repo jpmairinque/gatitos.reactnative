@@ -30,8 +30,6 @@ const ItemsContextProvider = ({children}) =>{
 
     ] )
 
-
-
     return(
         <ItemsContext.Provider value={{carrinhoItems,setCarrinhoItems}}>
             {children}

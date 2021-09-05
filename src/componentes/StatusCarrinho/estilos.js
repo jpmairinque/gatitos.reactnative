@@ -1,31 +1,31 @@
-import { StyleSheet } from 'react-native';
-import { cores } from '../../telas/Servicos/estilos';
+import { StyleSheet } from "react-native";
+import { cores } from "../../telas/Servicos/estilos";
 
 export default StyleSheet.create({
   conteudo: {
     backgroundColor: cores.roxo,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    flexWrap: 'wrap',
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    flexWrap: "wrap",
     padding: 24,
   },
   total: {
-    alignItems: 'center',
+    alignItems: "center",
   },
   descricao: {
     fontSize: 16,
     color: cores.claro,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   valor: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginVertical: 6,
     color: cores.laranja,
   },
   botao: {
     flexGrow: 1,
-    alignItems: 'flex-end',
+    alignItems: "flex-end",
   },
 });

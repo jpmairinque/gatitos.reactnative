@@ -1,13 +1,13 @@
-import { StyleSheet } from 'react-native';
-import { cores } from '../estilos';
+import { StyleSheet } from "react-native";
+import { cores } from "../estilos";
 
 export default StyleSheet.create({
   informacao: {
-    padding: 24
+    padding: 24,
   },
   nome: {
     color: cores.laranja,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 16,
   },
   calculo: {
@@ -18,8 +18,8 @@ export default StyleSheet.create({
   preco: {
     color: cores.roxo,
     fontSize: 16,
-    fontWeight: 'bold',
-    textAlign: 'right',
+    fontWeight: "bold",
+    textAlign: "right",
   },
   divisor: {
     marginHorizontal: 24,
@@ -29,16 +29,16 @@ export default StyleSheet.create({
   carrinho: {
     paddingHorizontal: 24,
     paddingBottom: 24,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    flexWrap: 'wrap',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexWrap: "wrap",
   },
   valor: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginBottom: 10,
-    flexWrap: 'wrap',
+    flexWrap: "wrap",
   },
   descricao: {
     color: cores.escuro,
@@ -47,5 +47,5 @@ export default StyleSheet.create({
   },
   quantidade: {
     width: 42,
-  }
+  },
 });
