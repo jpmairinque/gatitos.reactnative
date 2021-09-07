@@ -1,7 +1,7 @@
 # Gatitos 🐈📱
 Cat petshop made with React Native (based on Alura's course)
 
-// *Petshop para gatos construído com React Native (baseado no curso da Alura)
+// *Petshop para gatos construído com React Native (baseado no curso da Alura)*
 
 ## App Overview // *overview da aplicação* 💻
 ![Desktop - 2](https://user-images.githubusercontent.com/53411709/132134322-14075bb0-9545-4a52-9d11-00e676980aed.png)
